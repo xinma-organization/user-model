@@ -3,7 +3,7 @@ package com.xinma.base.core.exceptions;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import com.xinma.base.core.error.SystemError;
+import com.xinma.base.core.error.CustomError;
 
 /**
  * 系统自定义异常，继承自RuntimeException
@@ -15,10 +15,7 @@ import com.xinma.base.core.error.SystemError;
  */
 public class CustomException extends RuntimeException {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -772721964656196127L;
+	private static final long serialVersionUID = -4713824450047222637L;
 
 	/**
 	 * 系统错误代码
@@ -72,10 +69,35 @@ public class CustomException extends RuntimeException {
 	 * @param params
 	 *            错误信息需要的参数
 	 */
-	public CustomException(String message, SystemError error, Object... params) {
+	public CustomException(String message, CustomError error, Object... params) {
 		super(message);
 		this.error = error.value();
 		this.params = params;
+	}
+
+	/**
+	 * 构造函数
+	 * 
+	 * @param error
+	 *            CustomError对象
+	 * @param params
+	 *            错误信息需要的参数列表
+	 */
+	public CustomException(CustomError error, Object... params) {
+		super(error.description());
+		this.error = error.value();
+		this.params = params;
+	}
+
+	/**
+	 * 获取Exception stack trace 信息
+	 * 
+	 * @return stack trace
+	 */
+	public String getExceptionStackTrace() {
+		StringWriter sw = new StringWriter();
+		this.printStackTrace(new PrintWriter(sw));
+		return sw.toString();
 	}
 
 	/**

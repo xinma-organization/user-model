@@ -1,6 +1,6 @@
 package com.xinma.base.core.exceptions;
 
-import com.xinma.base.core.error.SystemError;
+import com.xinma.base.core.error.CustomError;
 
 /**
  * Serlet 请求参数不正确，抛出自定义异常
@@ -33,7 +33,7 @@ public class BadInputException extends CustomException {
 		super(cause);
 	}
 
-	public BadInputException(String message, SystemError code, Object... params) {
+	public BadInputException(String message, CustomError code, Object... params) {
 		super(message, code, params);
 	}
 }

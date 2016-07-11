@@ -1,6 +1,6 @@
 package com.xinma.base.core.exceptions;
 
-import com.xinma.base.core.error.SystemError;
+import com.xinma.base.core.error.CustomError;
 
 /**
  * 系统业务逻辑自定义异常
@@ -32,7 +32,7 @@ public class ServiceException extends CustomException {
 		super(cause);
 	}
 
-	public ServiceException(String message, SystemError error, Object... params) {
+	public ServiceException(String message, CustomError error, Object... params) {
 		super(message, error, params);
 	}
 }
