@@ -90,6 +90,22 @@ public class CustomException extends RuntimeException {
 	}
 
 	/**
+	 * 构造函数
+	 * 
+	 * @param cause
+	 *            Throwable Object
+	 * @param error
+	 *            CustomError对象
+	 * @param params
+	 *            错误信息需要的参数列表
+	 */
+	public CustomException(Throwable cause, CustomError error, Object... params) {
+		super(error.description(), cause);
+		this.error = error.value();
+		this.params = params;
+	}
+
+	/**
 	 * 获取Exception stack trace 信息
 	 * 
 	 * @return stack trace

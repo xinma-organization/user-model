@@ -36,4 +36,8 @@ public class BadInputException extends CustomException {
 	public BadInputException(String message, CustomError code, Object... params) {
 		super(message, code, params);
 	}
+
+	public BadInputException(Throwable cause, CustomError error, Object... params) {
+		super(cause, error, params);
+	}
 }
