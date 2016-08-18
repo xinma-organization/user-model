@@ -33,11 +33,11 @@ public class BadInputException extends CustomException {
 		super(cause);
 	}
 
-	public BadInputException(String message, CustomError code, Object... params) {
+	public BadInputException(String message, CustomError code, String... params) {
 		super(message, code, params);
 	}
 
-	public BadInputException(Throwable cause, CustomError error, Object... params) {
+	public BadInputException(Throwable cause, CustomError error, String... params) {
 		super(cause, error, params);
 	}
 }
