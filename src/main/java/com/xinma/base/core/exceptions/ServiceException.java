@@ -32,15 +32,15 @@ public class ServiceException extends CustomException {
 		super(cause);
 	}
 
-	public ServiceException(CustomError error, Object... params) {
+	public ServiceException(CustomError error, String... params) {
 		super(error, params);
 	}
 
-	public ServiceException(String message, CustomError error, Object... params) {
+	public ServiceException(String message, CustomError error, String... params) {
 		super(message, error, params);
 	}
 
-	public ServiceException(Throwable cause, CustomError error, Object... params) {
+	public ServiceException(Throwable cause, CustomError error, String... params) {
 		super(cause, error, params);
 	}
 }

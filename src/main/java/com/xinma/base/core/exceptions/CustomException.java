@@ -25,21 +25,21 @@ public class CustomException extends RuntimeException {
 	/**
 	 * 系统错误参数
 	 */
-	private Object[] params;
+	private String[] params;
 
-	public String getErrorCode() {
+	public String getError() {
 		return error;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.error = errorCode;
+	public void setError(String error) {
+		this.error = error;
 	}
 
-	public Object[] getParams() {
+	public String[] getParams() {
 		return params;
 	}
 
-	public void setParams(Object[] params) {
+	public void setParams(String[] params) {
 		this.params = params;
 	}
 
@@ -69,7 +69,7 @@ public class CustomException extends RuntimeException {
 	 * @param params
 	 *            错误信息需要的参数
 	 */
-	public CustomException(String message, CustomError error, Object... params) {
+	public CustomException(String message, CustomError error, String... params) {
 		super(message);
 		this.error = error.value();
 		this.params = params;
@@ -83,7 +83,7 @@ public class CustomException extends RuntimeException {
 	 * @param params
 	 *            错误信息需要的参数列表
 	 */
-	public CustomException(CustomError error, Object... params) {
+	public CustomException(CustomError error, String... params) {
 		super(error.description());
 		this.error = error.value();
 		this.params = params;
@@ -99,7 +99,7 @@ public class CustomException extends RuntimeException {
 	 * @param params
 	 *            错误信息需要的参数列表
 	 */
-	public CustomException(Throwable cause, CustomError error, Object... params) {
+	public CustomException(Throwable cause, CustomError error, String... params) {
 		super(error.description(), cause);
 		this.error = error.value();
 		this.params = params;
