@@ -2,19 +2,21 @@ package com.xinma.base.core.response;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonView;
 
+@JsonInclude(Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ErrorFiledEO implements Serializable {
 
 	private static final long serialVersionUID = -8178546814501086639L;
 
 	@JsonProperty("code")
-	@JsonView(BaseView.Base.class)
 	private String code;
 
 	@JsonProperty("msg")
-	@JsonView(BaseView.Base.class)
 	private String message;
 
 	public String getCode() {

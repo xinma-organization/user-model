@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonView;
 
 /**
  * 该数据传输对象用于接口间调用返回响应的通用模型
@@ -15,19 +17,18 @@ import com.fasterxml.jackson.annotation.JsonView;
  * @date 2015年7月5日
  *
  */
+@JsonInclude(Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ResponseVO implements Serializable {
 
 	private static final long serialVersionUID = -1157159645006381792L;
 
-	@JsonView(BaseView.Base.class)
 	private boolean success;
 
 	@JsonProperty("data")
-	@JsonView(BaseView.Base.class)
 	private Object result;
 
 	@JsonProperty("errors")
-	@JsonView(BaseView.Base.class)
 	private List<ErrorFiledEO> errors = new ArrayList<ErrorFiledEO>();
 
 	public boolean getSuccess() {
