@@ -2,7 +2,7 @@ package com.xinma.base.core.error;
 
 public enum GeneralError implements CustomError {
 
-	ThreadSleepInterruptedException("core-001", "thread sleep interrupted exception.");
+	ThreadSleepInterruptedException("common-threadsleep-interruptedexception", "catch exception when thread sleep.");
 
 	String value;
 
@@ -22,5 +22,4 @@ public enum GeneralError implements CustomError {
 	public String description() {
 		return description;
 	}
-
 }
